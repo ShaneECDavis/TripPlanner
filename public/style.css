@@ -11,4 +11,37 @@ body {
 #map {
   height: 100vh;
   width: 75vw;
+  flex: 2;
+}
+
+#navbar {
+  height: 35px;
+  width: 100vw;
+  background-color: red;
+  position: absolute;
+  z-index: 2;
+}
+
+.container {
+  display: flex;
+}
+
+#optionsPanel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+#panel1 {
+  padding: 1rem;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  background-color: yellow;
+  justify-content: space-around;
+}
+
+#panel2 {
+  flex: 1;
+  background-color: green;
 }
