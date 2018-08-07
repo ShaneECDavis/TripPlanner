@@ -1,10 +1,21 @@
+const mapboxgl = require('mapbox-gl')
+const buildMarker = require('./marker')
 
+mapboxgl.accessToken =
+  'pk.eyJ1IjoiYXdpZ2RhbGUiLCJhIjoiY2prazRpZjByMW40cDNwa3h5andxbHQwdiJ9.lz23Ula0ImDYrwQy7wwEiQ'
 
+const map = new mapboxgl.Map({
+  container: 'map',
+  center: [-87.641, 41.89], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago
+  zoom: 12, // starting zoom
+  style: 'mapbox://styles/mapbox/streets-v10' // mapbox has lots of different map styles available.
+})
 
+const markerDomEl = document.createElement('div')
+markerDomEl.style.width = '32px'
+markerDomEl.style.height = '39px'
+markerDomEl.style.backgroundImage = 'url(http://i.imgur.com/WbMOfMl.png)'
+new mapboxgl.Marker(markerDomEl).setLngLat([-87.641, 41.895]).addTo(map)
 
-
-console.log('Here is some text')
-console.log('Here is some more text')
-console.log('Stop it eslint')
-
-
+const marker = buildMarker('restaurant', [-87.641, 41.899])
+marker.addTo(map)
